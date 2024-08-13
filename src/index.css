@@ -44,7 +44,7 @@
 .main-container {
   display: flex;
   align-items: center;
-  max-height: 150px;
+  max-height: 250px;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;

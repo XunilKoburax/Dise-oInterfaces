@@ -24,8 +24,14 @@ function App() {
     <>
      <Header></Header>
     <div className="Gallery"> 
-        {pokemons.map (() =>(
-          <Tarjeta />
+        {pokemons.map ((pokemon) =>(
+          <Tarjeta 
+            key = {pokemon.id}
+            name ={pokemon.name}
+            img = {pokemon.img}
+            tipo = {pokemon.type}
+            Costo = {pokemon.Costo}
+          />
         ))}
         
         

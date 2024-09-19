@@ -6,13 +6,13 @@ export const db = [
     "img":"pkm\\1891758-001bulbasaur.png"
     },
     {"name":"Ivysaur",
-    "id":1,
+    "id":2,
     "type":["Veneno","Planta"],
     "Costo":60,
     "img":"pkm\\1891759-002ivysaur.png"
     },
     {"name":"Venusaur",
-    "id":1,
+    "id":3,
     "type":["Veneno","Planta"],
     "Costo":70,
     "img":"pkm\\1891760-003venusaur.png"

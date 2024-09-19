@@ -1,6 +1,10 @@
 export default function Tarjeta(props){
   console.log(props)
 
+  const handleClick =(id)=>{
+    console.log("diste click...",id)
+  }
+
     return(
         <card>
       <div className="main-container">
@@ -15,6 +19,7 @@ export default function Tarjeta(props){
             <p>Pokemon tipo:</p>
             <ul>
               {props.tipo.map((tipo) => (
+                
                 <li>{tipo}</li>
               ))}
             </ul>
@@ -23,7 +28,10 @@ export default function Tarjeta(props){
             <h3>{props.Costo} pts</h3>
           </div>
           <div className="add">
-            <button>Add</button>
+            <button
+              type="button"
+              onClick={()=>handleClick(props.id)}
+            >Add</button>
           </div>
         </div>
 

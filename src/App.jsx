@@ -31,6 +31,7 @@ function App() {
             img = {pokemon.img}
             tipo = {pokemon.type}
             Costo = {pokemon.Costo}
+            id = {pokemon.id}
           />
         ))}
         

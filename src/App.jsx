@@ -22,16 +22,15 @@ function App() {
 
   return (
     <>
-     <Header></Header>
+    <Header></Header>
     <div className="Gallery"> 
         {pokemons.map ((pokemon) =>(
           <Tarjeta 
             key = {pokemon.id}
-            name ={pokemon.name}
-            img = {pokemon.img}
-            tipo = {pokemon.type}
-            Costo = {pokemon.Costo}
-            id = {pokemon.id}
+            pokemon = {pokemon}
+            carrito = {carrito}
+            setCarrito = {setCarrito} //funcion de carrito
+            
           />
         ))}
         

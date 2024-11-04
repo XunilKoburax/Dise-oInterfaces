@@ -1,3 +1,5 @@
+import { Carrito } from "./carrito"
+
 export default function Header(){
 // aqui van todas las funciones que se van a encargar de modificar el comportamiento de nuestro codigo
 
@@ -12,21 +14,7 @@ export default function Header(){
             <li>|</li>
             <li><a href="#">Plantillas</a></li>
             <li>|</li>
-            <li className="cart-container">
-              <a href="#"><img src=".\\public\\car_white.png" alt="" height="30px" /></a>
-              <div className="cart-dropdown">
-                <p>Carrito vacío</p>
-                <div className="deailtcard">
-                  <div className="name">Bulbasaur</div>
-                  <div className="points">50 pts</div>
-                  <div className="count">1</div>
-                  <div className="total">50 pts</div>
-                  <div className="add">
-                    <button>Vaciar carrito</button>
-                  </div>
-                </div>
-              </div>
-            </li>
+            <Carrito />
            
         </ul>
         </nav>

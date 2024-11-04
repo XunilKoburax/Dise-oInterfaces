@@ -94,7 +94,6 @@
   background-color: #45a049;
 }
 
-/* Nuevo CSS para el carrito */
 .cart-container {
   position: relative;
 }
@@ -115,5 +114,48 @@
 }
 
 .cart-container:hover .cart-dropdown {
-  display: block;
+  display: block; /* Muestra el dropdown al pasar el mouse */
+}
+
+
+
+/* Estilos para el mensaje "Carrito vacío" */
+.cart-dropdown p {
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Estilos para la tabla */
+.cart-dropdown table {
+  width: 100%; /* Hace que la tabla use todo el ancho del contenedor */
+  border-collapse: collapse; /* Elimina espacios entre las celdas */
+  margin-top: 10px;
+}
+
+.cart-dropdown th, .cart-dropdown td {
+  font-size: 9px;
+  border: 1px solid #ccc; /* Bordes de la tabla */
+  padding: 5px; /* Espaciado dentro de las celdas */
+  text-align: center; /* Centra el texto en las celdas */
+}
+
+.cart-dropdown th {
+  background-color: #f2f2f2; /* Color de fondo para el encabezado */
+}
+
+/* Botón para vaciar el carrito */
+.add button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add button:hover {
+  background-color: #45a049;
 }

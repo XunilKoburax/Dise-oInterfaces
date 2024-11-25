@@ -1,8 +1,11 @@
-export default function Tarjeta({ pokemon, agregarAlEquipo }) {
+export default function Team({ pokemon, eliminarDelEquipo }) {
   const { id, name, img, type, Costo } = pokemon;
 
   return (
     <card>
+      {pokemon.length === 0 ? (
+        <p>No hay Pokémon en el equipo.</p>
+      ) : (
       <div className="main-container">
         <div className="img-container">
           <img src={img} alt={`Imagen de ${name}`} />
@@ -25,13 +28,13 @@ export default function Tarjeta({ pokemon, agregarAlEquipo }) {
           <div className="add">
             <button
               type="button"
-              onClick={() => agregarAlEquipo(pokemon)}
+              onClick={() => eliminarDelEquipo(pokemon.id)}
             >
-              Add
+              Remove
             </button>
           </div>
         </div>
-      </div>
+      </div>)}
     </card>
   );
 }

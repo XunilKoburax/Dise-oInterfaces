@@ -2,13 +2,13 @@ import { useState,useEffect } from "react";
 
 function useLocalStorage(itemName,intialValue){
     const [item,setItem] = useState(intialValue)
-    const [loading,setLoading] = useState(true)
-    const[error, setError] = useState(false)
+    const [loading,setLoading] = useState(true) //estado de carga inical para mis componentes
+    const[error, setError] = useState(false) //estado de error si hay alguna situacion
 
     useEffect(
       () =>{
-        setTimeout( () => {
-                    try {
+        setTimeout( () => { // colocar un tiempo de espera para renderizar informacion
+                    try { // intentar esto 
             const localStorageItem = localStorage.getItem(itemName);
         let parseItem;
         if(!localStorageItem ){
@@ -22,13 +22,13 @@ function useLocalStorage(itemName,intialValue){
 
         setLoading(false);
             
-        } catch (error) {
+        } catch (error) { // si falla mi carga
             setLoading(false);
             setError(true);            
         }
-      },2000);
+      },2000); // timeout de respuesta
         
-      },[itemName,intialValue]);
+      },[]);
 
       const saveItem = (newItem) =>{
         localStorage.setItem(itemName,JSON.stringify(newItem));
@@ -37,10 +37,10 @@ function useLocalStorage(itemName,intialValue){
     
 
     return {  //por convencion se debe retornar un objeto en ves de un arreglo si lo que estoy regresando son mas de 2 parametros
-      item,
-      saveItem,
-      loading,
-      error}
+      item, //estado inicial
+      saveItem, //actualizacion de estado
+      loading, //estado de carga
+      error} //estado de error
 
   }
 

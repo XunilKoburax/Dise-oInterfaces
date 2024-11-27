@@ -8,39 +8,36 @@ import './App.css'
 import Team from './tarjetasteam.jsx'
 
 
-
 function App() {
-  //declaracion de estados
-
   const [total, setTotal] = useState(0)
   // de igual modo nunca se debe declarar dentro de condicionales pues puede generar problemas
   const [carrito, setCarrito] = useState([])
   
-  const {
-    item: equipo,
-    saveItem: guardarEquipo,
-    loading,
-    error
-  } = useLocalStorage("Listaequipo",[])
+  const {  // prepraracion de objeto localstorage
+    item: equipo, // valor iterable creado para almacenar los valores a localstorage y reutilizable el los componentes
+    saveItem: guardarEquipo, // set estate del anterior
+    loading, //estado de carga
+    error //estado de error en caso de una falla al solicitar los datos
+  } = useLocalStorage("Listaequipo",[]) //envio de parametros iniciales, etiqueta y array
 
   const {
     item: listaPokemon,
     saveItem: guardarPokemon,
     loading: pokemonLoading,
     error: pokemonError,
-  } = useLocalStorage("Galeria", db);
+  } = useLocalStorage("Galeria", db); // lo mismo pero para el consumo del API
 
-  const pokemons = listaPokemon;
+  const pokemons = listaPokemon; //Carga inicial del objeto devuelto por useEffect
 
-  const addteam = (pokemon) => {
+  const addteam = (pokemon) => { //condiones del equipo
     if (equipo.length >= 6) {
-      console.log("Ya no se puede agregar");
-      return;
+      let message = "Ya no se puede agregar :(";
+      return ;
     }
 
     if (equipo.find((p) => p.id === pokemon.id)) {
-      console.log("Este Pokémon ya está en el equipo.");
-      return;
+      let  message = ("Este Pokémon ya está en el equipo.");
+      return ;
     }
 
     const nuevoEquipo = [...equipo, pokemon];
@@ -57,9 +54,9 @@ function App() {
     <>
     <Header></Header>
     <h1>Equipo Pokemon</h1>
-        {loading && <p>Cargando ...</p>}
+        {loading && <p>Cargando ...</p>} 
         {error && <p>Se ha producido un error.</p>}
-        {(!!loading && equipo ===0) && <p>Selecciona a tu equipo</p> }
+        {(!loading && equipo.length===0) && <h2>Selecciona a tu equipo :)</h2> }
         <div className="Gallery">
         
         {equipo.map((pokemon) => (
@@ -75,7 +72,7 @@ function App() {
 
     
     <h1>Disponibles </h1>
-    {pokemonLoading && <p>Cargando Pokémon...</p>}
+    {pokemonLoading && <p>Cargando Pokémon...</p>} 
     {pokemonError && <p>Error al cargar Pokémon</p>}
     <div className="Gallery">
         
@@ -86,6 +83,7 @@ function App() {
             carrito={carrito}
             setCarrito={setCarrito}
             agregarAlEquipo={addteam} // Pasa la función como prop
+
           />
         ))}
       </div>

@@ -29,6 +29,7 @@ export default function Tarjeta({ pokemon, agregarAlEquipo }) {
             >
               Add
             </button>
+
           </div>
         </div>
       </div>

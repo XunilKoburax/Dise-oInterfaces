@@ -1,4 +1,10 @@
-export default function Tarjeta({ pokemon, agregarAlEquipo }) {
+import React, { useContext } from "react";
+import { AppContext } from "./context";
+
+export default function Tarjeta({ pokemon }) {
+  // Obtén `addteam` desde el contexto
+  const { addteam } = useContext(AppContext);
+
   const { id, name, img, type, Costo } = pokemon;
 
   return (
@@ -23,13 +29,9 @@ export default function Tarjeta({ pokemon, agregarAlEquipo }) {
             <h3>{Costo} pts</h3>
           </div>
           <div className="add">
-            <button
-              type="button"
-              onClick={() => agregarAlEquipo(pokemon)}
-            >
+            <button type="button" onClick={() => addteam(pokemon)}>
               Add
             </button>
-
           </div>
         </div>
       </div>

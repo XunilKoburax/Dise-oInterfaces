@@ -1,40 +1,57 @@
-export default function Team({ pokemon, eliminarDelEquipo }) {
-  const { id, name, img, type, Costo } = pokemon;
+import { useContext } from "react";
+import { AppContext } from "./context";
+
+function Team() {
+  const { removeTeam, equipo } = useContext(AppContext); // Acceso al contexto
 
   return (
-    <card>
-      {pokemon.length === 0 ? (
-        <p>No hay Pokémon en el equipo.</p>
+    <div className="team-container">
+      <div className="Gallery">
+      {equipo.length === 0 ? (
+        <h2>No hay Pokemon en el equipo.</h2>
       ) : (
-      <div className="main-container">
-        <div className="img-container">
-          <img src={img} alt={`Imagen de ${name}`} />
-        </div>
-        <div className="content">
-          <div className="title">
-            <h2>{name}</h2>
-          </div>
-          <div className="description">
-            <p>Pokemon tipo:</p>
-            <ul>
-              {type.map((tipo, index) => (
-                <li key={index}>{tipo}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="price">
-            <h3>{Costo} pts</h3>
-          </div>
-          <div className="add">
-            <button
-              type="button"
-              onClick={() => eliminarDelEquipo(pokemon.id)}
-            >
-              Remove
-            </button>
-          </div>
-        </div>
-      </div>)}
-    </card>
+        
+        equipo.map((pokemon) => (
+          <card>
+          
+                
+
+          <div className="main-container" key={pokemon.id}>
+            <div className="img-container">
+              <img src={pokemon.img} alt={`Imagen de ${pokemon.name}`} />
+            </div>
+            <div className="content">
+              <div className="title">
+                <h2>{pokemon.name}</h2>
+              </div>
+              <div className="description">
+                <p>Pokemon tipo:</p>
+                <ul>
+                  {pokemon.type.map((tipo, index) => (
+                    <li key={index}>{tipo}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="price">
+                <h3>{pokemon.Costo} pts</h3>
+              </div>
+              <div className="add">
+                <button
+                  type="button"
+                  onClick={() => removeTeam(pokemon.id)}
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+            </div>
+            
+          </card>
+        ))
+      )}
+    </div>
+    </div>
   );
 }
+
+export { Team };
